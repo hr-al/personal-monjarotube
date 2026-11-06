@@ -22,6 +22,7 @@ class UpgradeStateTest {
 
     @Test fun seedLegacyState() {
         emulatorOnly()
+        assumeTrue(InstrumentationRegistry.getArguments().getString("upgradeStep") == "seed")
         assertEquals(11L, context.packageManager.getPackageInfo(context.packageName, 0).longVersionCode)
         context.getSharedPreferences("dpi", 0).edit()
             .putBoolean("automaticLaunch", true).putInt("profileSchema", 1)
@@ -42,6 +43,7 @@ class UpgradeStateTest {
     @Suppress("DEPRECATION")
     @Test fun verifyUpgradeState() {
         emulatorOnly()
+        assumeTrue(InstrumentationRegistry.getArguments().getString("upgradeStep") == "verify")
         val info = context.packageManager.getPackageInfo(context.packageName, android.content.pm.PackageManager.GET_SIGNING_CERTIFICATES)
         assertEquals(12L, info.longVersionCode)
         assertEquals("1.0.0", info.versionName)
