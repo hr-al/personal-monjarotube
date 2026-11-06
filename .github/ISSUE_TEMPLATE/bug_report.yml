@@ -1,0 +1,30 @@
+name: Ошибка в приложении
+description: Сообщить о воспроизводимой проблеме
+body:
+  - type: markdown
+    attributes:
+      value: Не прикладывайте пароли, cookies, коды подтверждения, адрес аккаунта или полные ссылки авторизации Google.
+  - type: input
+    id: device
+    attributes:
+      label: Устройство и версия Android
+      placeholder: Geely Monjaro, Android 11
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Версия MonjaroTube и WebView
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Шаги, ожидаемый и фактический результат
+    validations:
+      required: true
+  - type: textarea
+    id: connection
+    attributes:
+      label: Подключение, профиль обхода и вариант входа
+      description: Достаточно типа сети и выбранных настроек. Персональные данные не нужны.
